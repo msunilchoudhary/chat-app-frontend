@@ -9,7 +9,7 @@ export default defineConfig({
     port:4001,
     proxy:{
       '/api':{
-        target:'http://localhost:3151',
+        target:'https://chat-app-server-theta.vercel.app/',
         changeOrigin:true
       }
     }
