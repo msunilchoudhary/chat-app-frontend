@@ -1,9 +1,8 @@
-import { useContext } from 'react'
-import AppContext from '../contexts/AppContext'
+import { useAppContext } from '../contexts/AppContext'
 import { Send } from 'lucide-react'
 
 function MessageInput() {
-    const {setMessage, message} = useContext(AppContext)
+    const {setMessage, message} = useAppContext()
   return (
     <div className="p-3 bg-[#efeae2]">
         <div className="p-2 bg-white flex items-center gap-2 border border-gray-300 rounded-4xl">

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import DropdownMenu from './DropdownMenu'
-import AppContext from '../contexts/AppContext'
+import  { useAppContext } from '../contexts/AppContext'
 
 function LeftHeader() {
-    const {open, setOpen} = useContext(AppContext)
+    const {open, setOpen} = useAppContext()
   return (
     <div  className="px-4 py-2 flex relative items-center justify-between bg-white text-green-600 text-xl font-bold">
           WhatsApp

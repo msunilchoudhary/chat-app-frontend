@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import {
   MdOutlineGroupAdd,
   MdStarBorder,
@@ -7,28 +7,16 @@ import {
   MdLogout,
   MdMoreVert,
 } from "react-icons/md";
+import { useAppContext } from "../contexts/AppContext";
 
 export default function ChatMenuDropdown() {
-  const [open, setOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  // Close on outside click
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const [open, dropdownRef, commonHandler] = useAppContext();
 
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Trigger */}
       <button
-        onClick={() => setOpen(!open)}
+        onClick={commonHandler}
         className="p-2 rounded-full hover:bg-gray-200 transition"
       >
         <MdMoreVert />
